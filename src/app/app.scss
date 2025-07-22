@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9fafc;
+  color: #333;
+}
+
+section {
+  padding: 2rem 0.5rem;
+}
+
+h1, h2 {
+  color: #2c3e50;
+}
+
+nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #e67e22;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: #2c3e50;
+  color: white;
+}
+
+.scroll-top-btn {
+  position: fixed;
+  bottom: 5rem;
+  right: 2rem;
+  background-color: #f57c00;
+  color: white;
+  padding: 0.9rem 1.4rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 999;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-top-btn:hover {
+  background-color: #ef6c00;
+}
+

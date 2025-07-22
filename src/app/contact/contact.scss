@@ -1,0 +1,83 @@
+.contact {
+  background-color: #f5f5f5;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 2rem;
+  }
+
+  .contact-info {
+    display: flex;
+    justify-content: center;
+
+    .info-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      text-align: left;
+
+      h4 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        color: #f77b00;
+      }
+
+      p {
+        font-size: 1rem;
+        color: #333;
+        margin-bottom: 0.5rem;
+
+        a {
+          color: #f77b00;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .working-hours {
+  margin-top: 1rem;
+
+  .day {
+    margin-bottom: 1rem;
+
+    p {
+      margin: 0;
+    }
+
+    .hours {
+      font-weight: bold;
+      color: #f77b00;
+    }
+  }
+}
+    }
+  }
+
+  .handwritten {
+    font-family: 'Pacifico', cursive;
+    font-weight: normal;
+    font-size: 2.4rem;
+    color: #c1db14; /* може да смениш цвета */
+  }
+
+  .map-container {
+    margin-top: 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 100%;
+  }
+}

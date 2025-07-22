@@ -1,0 +1,142 @@
+header {
+  background-color: #f39c12;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    color: white;
+    font-size: 1.8rem;
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    font-size: 2rem;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 0.5rem;
+  }
+
+  nav {
+    ul {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+
+      li a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+
+        &:hover {
+          color: #2c3e50;
+        }
+      }
+    }
+
+    &.open ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+
+  // Мобилен стил
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+    }
+
+    nav ul {
+      display: none;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    nav.open ul {
+      display: flex;
+    }
+  }
+}
+
+.title-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.logo {
+  height: 120px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.site-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1rem auto;
+  color: #333;
+
+  .handwritten {
+    font-family: 'Pacifico', cursive;
+    font-weight: normal;
+    font-size: 2.4rem;
+    color: #a9f1b3; /* може да смениш цвета */
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.6rem;
+
+    .title-logo-container {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .handwritten {
+      font-size: 2rem;
+    }
+  }
+}
+
+.nav-btn {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  margin: 0 0.3rem;
+  border: 2px solid #f57c00;       // оранжево очертание
+  border-radius: 8px;               // леко заоблени ъгли
+  background-color: transparent;   // прозрачен фон
+  color: #f57c00;                  // оранжев текст
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;           // премахва underline при <a>
+  box-shadow: 0 2px 5px rgba(245, 124, 0, 0.3); // леко изпъкване
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.nav-btn:hover, 
+.nav-btn:focus {
+  background-color: #f57c00;  // запълва с оранжево при hover
+  color: white;
+  box-shadow: 0 4px 12px rgba(245, 124, 0, 0.6);
+  outline: none;
+}
+
+.signup-btn {
+  border-color: #e60800;
+  color: #e60800;
+
+  &:hover {
+    background-color: #e65100;
+    box-shadow: 0 4px 14px rgba(230, 81, 0, 0.8);
+  }
+}

@@ -1,0 +1,21 @@
+<header>
+  <div class="title-logo-container">
+    <img src="images/logo.png" alt="Лого" class="logo" />
+    <h1 class="site-title">
+      Частна Занималня <span class="handwritten">"Кошерчето"</span>
+    </h1>
+  </div>
+
+  <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+
+  <nav [class.open]="menuOpen">
+    <ul>
+      <li><a href="#about" class="nav-btn" (click)="closeMenu()">За нас</a></li>
+      <li><a href="#program" class="nav-btn" (click)="closeMenu()">Програма</a></li>
+      <li><a href="#gallery" class="nav-btn" (click)="closeMenu()">Галерия</a></li>
+      <li><a href="#documents" class="nav-btn" (click)="closeMenu()">Документи</a></li>
+      <li><a href="#contact" class="nav-btn" (click)="closeMenu()">Контакти</a></li>
+      <li><a href="#signupform" class="nav-btn signup-btn" (click)="closeMenu()">Изпратете съобщение</a></li>
+    </ul>
+  </nav>
+</header>
