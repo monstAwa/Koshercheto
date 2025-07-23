@@ -1,12 +1,13 @@
 .contact {
   background-color: #f5f5f5;
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 12px;
   text-align: center;
 
   h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
+    color: #ffa200;
   }
 
   p {
@@ -75,9 +76,10 @@
   }
 
   .map-container {
-    margin-top: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     border-radius: 12px;
     overflow: hidden;
-    max-width: 100%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
 }
