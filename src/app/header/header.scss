@@ -46,7 +46,6 @@ header {
     }
   }
 
-  // Мобилен стил
   @media (max-width: 768px) {
     .menu-toggle {
       display: block;
@@ -90,7 +89,7 @@ header {
     font-family: 'Pacifico', cursive;
     font-weight: normal;
     font-size: 2.4rem;
-    color: #a9f1b3; /* може да смениш цвета */
+    color: #a9f1b3;
   }
 
   @media (max-width: 768px) {
@@ -111,21 +110,21 @@ header {
   display: inline-block;
   padding: 0.5rem 1.2rem;
   margin: 0 0.3rem;
-  border: 2px solid #f57c00;       // оранжево очертание
-  border-radius: 8px;               // леко заоблени ъгли
-  background-color: transparent;   // прозрачен фон
-  color: #f57c00;                  // оранжев текст
+  border: 2px solid #f57c00;       
+  border-radius: 8px;              
+  background-color: transparent;   
+  color: #f57c00;                  
   font-weight: 600;
   cursor: pointer;
-  text-decoration: none;           // премахва underline при <a>
-  box-shadow: 0 2px 5px rgba(245, 124, 0, 0.3); // леко изпъкване
+  text-decoration: none;           
+  box-shadow: 0 2px 5px rgba(245, 124, 0, 0.3); 
   transition: all 0.3s ease;
   user-select: none;
 }
 
 .nav-btn:hover, 
 .nav-btn:focus {
-  background-color: #f57c00;  // запълва с оранжево при hover
+  background-color: #f57c00; 
   color: white;
   box-shadow: 0 4px 12px rgba(245, 124, 0, 0.6);
   outline: none;
