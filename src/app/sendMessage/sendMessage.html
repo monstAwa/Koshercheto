@@ -1,28 +1,28 @@
 <section id="signup">
-      <h2>Изпратете ни съобщение</h2>
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <label>
-          Име:
-          <input type="text" formControlName="name" />
-          <span *ngIf="form.get('name')?.invalid && form.get('name')?.touched">Моля, въведете име.</span>
-        </label>
+  <h2>Изпратете ни съобщение</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>
+      Име:
+      <input type="text" formControlName="name" />
+      <span *ngIf="form.get('name')?.invalid && form.get('name')?.touched">Моля, въведете име.</span>
+    </label>
 
-        <label>
-          Имейл:
-          <input type="email" formControlName="email" />
-          <span *ngIf="form.get('email')?.invalid && form.get('email')?.touched">Въведете валиден имейл.</span>
-        </label>
+    <label>
+      Имейл:
+      <input type="email" formControlName="email" />
+      <span *ngIf="form.get('email')?.invalid && form.get('email')?.touched">Въведете валиден имейл.</span>
+    </label>
 
-        <label>
-          Съобщение:
-          <textarea formControlName="message"></textarea>
-          <span *ngIf="form.get('message')?.invalid && form.get('message')?.touched">Съобщението е задължително.</span>
-        </label>
+    <label>
+      Съобщение:
+      <textarea formControlName="message"></textarea>
+      <span *ngIf="form.get('message')?.invalid && form.get('message')?.touched">Съобщението е задължително.</span>
+    </label>
 
-        <button type="submit" [disabled]="form.invalid">Изпрати</button>
-      </form>
-      
-      <div *ngIf="success" class="popup">
-        Благодарим за съобщението
-      </div>
+    <button type="submit" [disabled]="form.invalid">Изпрати</button>
+  </form>
+  
+  <div *ngIf="success" class="popup">
+    Благодарим за съобщението
+  </div>
 </section>

@@ -25,11 +25,11 @@ success = false;
 
   onSubmit() {
     if (this.form.valid) {
-    const serviceID = 'service_6n9as0o';
-    const templateID = 'template_zptobbp';
-    const publicKey = 'rpdhUJXaMKBu9XlfG';
+      const serviceID = 'service_6n9as0o';
+      const templateID = 'template_zptobbp';
+      const publicKey = 'rpdhUJXaMKBu9XlfG';
 
-    emailjs.send(serviceID, templateID, this.form.value, publicKey)
+      emailjs.send(serviceID, templateID, this.form.value, publicKey)
       .then(() => {
         this.success = true;
         this.form.reset();
@@ -39,6 +39,6 @@ success = false;
         console.error('EmailJS грешка:', error);
         alert('Възникна проблем при изпращането.');
       });
+    }
   }
-}
 }
