@@ -21,7 +21,6 @@ export class Gallery {
   ];
 
   constructor(private title: Title, private meta: Meta) {
-    this.title.setTitle('Галерия | Частна занималня Кошерчето');
     this.meta.addTags([
       {
         name: 'description',

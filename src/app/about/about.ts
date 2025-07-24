@@ -25,7 +25,6 @@ export class About {
   ];
 
   constructor(private title: Title, private meta: Meta) {
-    this.title.setTitle ('За нас | Частна занималня Кошерчето');
     this.meta.addTags([
       {
         name: 'description',

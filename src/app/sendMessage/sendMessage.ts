@@ -23,7 +23,6 @@ success = false;
       message: ['', Validators.required]
     });
 
-    this.title.setTitle('Изпрати съобщение | Частна занималня Кошерчето');
     this.meta.addTags([
       {
         name: 'description',

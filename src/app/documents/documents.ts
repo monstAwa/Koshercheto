@@ -9,7 +9,6 @@ import { Title, Meta } from "@angular/platform-browser";
 })
 export class Documents {
   constructor(private title: Title, private meta: Meta) {
-    this.title.setTitle('Документи | Частна занималня Кошерчето');
     this.meta.addTags([
       {
         name: 'description',

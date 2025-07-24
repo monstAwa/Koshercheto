@@ -10,12 +10,12 @@
 
   <nav [class.open]="menuOpen">
     <ul>
-      <li><a href="#about" class="nav-btn" (click)="closeMenu()">За нас</a></li>
-      <li><a href="#program" class="nav-btn" (click)="closeMenu()">Програма</a></li>
-      <li><a href="#gallery" class="nav-btn" (click)="closeMenu()">Галерия</a></li>
-      <li><a href="#documents" class="nav-btn" (click)="closeMenu()">Документи</a></li>
-      <li><a href="#contact" class="nav-btn" (click)="closeMenu()">Контакти</a></li>
-      <li><a href="#signupform" class="nav-btn signup-btn" (click)="closeMenu()">Изпратете съобщение</a></li>
+      <li><a class="nav-btn" (click)="navigateToSection('about')">За нас</a></li>
+      <li><a class="nav-btn" (click)="navigateToSection('program')">Програма</a></li>
+      <li><a class="nav-btn" (click)="navigateToSection('gallery')">Галерия</a></li>
+      <li><a class="nav-btn" (click)="navigateToSection('documents')">Документи</a></li>
+      <li><a class="nav-btn" (click)="navigateToSection('contact')">Контакти</a></li>
+      <li><a class="nav-btn signup-btn" (click)="navigateToSection('sendMessage')">Изпратете съобщение</a></li>
     </ul>
   </nav>
 </header>
