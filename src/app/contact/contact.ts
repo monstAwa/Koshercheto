@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Title, Meta } from "@angular/platform-browser";
+import { Meta } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-contact',
@@ -8,7 +8,8 @@ import { Title, Meta } from "@angular/platform-browser";
   styleUrl: './contact.scss'
 })
 export class Contact {
-  constructor(private title: Title, private meta: Meta) {
+  constructor(private meta: Meta) {
+    //Мета тагове  за SEO
     this.meta.addTags([
       {
         name: 'description',
@@ -17,7 +18,14 @@ export class Contact {
       {
         name: 'keywords',
         content: 'контакти, занималня адрес, Кошерчето контакти, частна занималня, детска занималня, детска грижа, телефон на занималня'
-      }
+      },
+      // Open Graph тагове за секция "Контакти"
+      { property: 'og:title', content: 'Контакти | Частна занималня Кошерчето' },
+      { property: 'og:description', content: 'Свържете с нас за въпроси и запитвания. Винаги сме насреща и ви очакваме!' },
+      { property: 'og:image', content: 'https://koshercheto.com/images/og-koshercheto.jpg' },
+      { property: 'og:url', content: 'https://koshercheto.com/#contact' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:site_name', content: 'Частна занималня Кошерчето' },
     ]);
   }
 }

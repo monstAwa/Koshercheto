@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Title, Meta } from "@angular/platform-browser";
+import { Meta } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-documents',
@@ -8,7 +8,8 @@ import { Title, Meta } from "@angular/platform-browser";
   styleUrl: './documents.scss'
 })
 export class Documents {
-  constructor(private title: Title, private meta: Meta) {
+  constructor(private meta: Meta) {
+    //Мета тагове за SEO
     this.meta.addTags([
       {
         name: 'description',
@@ -17,7 +18,14 @@ export class Documents {
       {
         name: 'keywords',
         content: 'документи, записване, формуляри, декларация, здравна информация, занималня Кошерчето, документи за занималня'
-      }
+      },
+      // Open Graph тагове за секция "Документи"
+      { property: 'og:title', content: 'Документи | Частна занималня Кошерчето' },
+      { property: 'og:description', content: 'Може да свалите всички необходими документи за записване на вашето дете.' },
+      { property: 'og:image', content: 'https://koshercheto.com/images/og-koshercheto.jpg' },
+      { property: 'og:url', content: 'https://koshercheto.com/#documents' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:site_name', content: 'Частна занималня Кошерчето' },
     ]);
   }
 }
