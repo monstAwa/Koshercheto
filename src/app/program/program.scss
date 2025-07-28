@@ -32,7 +32,7 @@
       padding: 1.5rem;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      max-width: 300px;
+      max-width: 400px;
       text-align: left;
 
       h4 {
@@ -63,3 +63,10 @@
     }
   }
 }
+
+.handwritten {
+      font-family: 'Pacifico', cursive;
+      font-weight: normal;
+      font-size: 1.6rem;
+      color: #dd2f2c;
+    }
