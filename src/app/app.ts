@@ -1,4 +1,4 @@
-import { Component, signal, effect } from '@angular/core';
+import { Component, signal, effect, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { About } from './about/about';
 import { Program } from './program/program';
@@ -29,7 +29,7 @@ import { Title } from "@angular/platform-browser";
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App {
+export class App implements OnInit {
   protected readonly defaultTitle = 'Koshercheto';
   showScrollTop = false;
 
@@ -61,6 +61,18 @@ export class App {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  public updateTitleOnNavigation(sectionId: string) {
+    if (this.sectionTitles[sectionId]) {
+      this.titleService.setTitle(this.sectionTitles[sectionId] + ' | ' + this.defaultTitle);
+    } else {
+      this.titleService.setTitle(this.defaultTitle);
+    }
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
   private updateTitleOnScroll() {
     let currentSectionId: string | null = null;
     const sections = document.querySelectorAll('section[id]');
@@ -83,18 +95,6 @@ export class App {
     } else {
 
       this.titleService.setTitle(this.defaultTitle);
-    }
-  }
-
-  public updateTitleOnNavigation(sectionId: string) {
-    if (this.sectionTitles[sectionId]) {
-      this.titleService.setTitle(this.sectionTitles[sectionId] + ' | ' + this.defaultTitle);
-    } else {
-      this.titleService.setTitle(this.defaultTitle);
-    }
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
     }
   }
 }
