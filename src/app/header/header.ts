@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core'; 
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  standalone: true, 
+  imports: [CommonModule], 
   templateUrl: './header.html',
   styleUrl: './header.scss'
 })
 export class Header {
+  @Output() sectionSelected = new EventEmitter<string>();
+
   menuOpen = false;
 
   toggleMenu() {
@@ -15,5 +19,11 @@ export class Header {
 
   closeMenu() {
     this.menuOpen = false;
+  }
+
+
+  navigateToSection(sectionId: string) {
+    this.sectionSelected.emit(sectionId); 
+    this.closeMenu(); 
   }
 }

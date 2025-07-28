@@ -19,10 +19,17 @@ form {
   gap: 1rem;
 }
 
-input, textarea {
+input {
   padding: 0.5rem;
   font-size: 1rem;
   width: 100%;
+}
+
+textarea {
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+  min-height: 150px;
 }
 
 span {
