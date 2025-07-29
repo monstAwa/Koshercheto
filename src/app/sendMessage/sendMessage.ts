@@ -36,8 +36,8 @@ success = false;
       // Open Graph тагове за секция "Изпратете съобщение"
       { property: 'og:title', content: 'Изпратете съобщение | Частна занималня Кошерчето' },
       { property: 'og:description', content: 'Пишете ни директно от сайта на частна занималня „Кошерчето“ за въпроси и запитвания. Очакваме ви!' },
-      { property: 'og:image', content: 'https://koshercheto.com/images/og-koshercheto.jpg' },
-      { property: 'og:url', content: 'https://koshercheto.com/#sendMessage' },
+      { property: 'og:image', content: 'https://staging.koshercheto.com/images/og-koshercheto.png' },
+      { property: 'og:url', content: 'https://staging.koshercheto.com/#sendMessage' },
       { property: 'og:type', content: 'website' },
       { property: 'og:site_name', content: 'Частна занималня Кошерчето' },
     ]);

@@ -38,8 +38,8 @@ export class About {
       // Open Graph тагове за секция "За нас"
       { property: 'og:title', content: 'За нас | Частна занималня Кошерчето' },
       { property: 'og:description', content: 'Частна занималня „Кошерчето“ предлага целодневни и почасови занимания за деца в уютна и стимулираща среда. Насърчаваме ученето чрез игра.' },
-      { property: 'og:image', content: 'https://koshercheto.com/images/og-koshercheto.jpg' },
-      { property: 'og:url', content: 'https://koshercheto.com/#about' },
+      { property: 'og:image', content: 'https://staging.koshercheto.com/images/og-koshercheto.png' },
+      { property: 'og:url', content: 'https://staging.koshercheto.com/#about' },
       { property: 'og:type', content: 'website' },
       { property: 'og:site_name', content: 'Частна занималня Кошерчето' },
     ]);

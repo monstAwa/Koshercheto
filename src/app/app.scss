@@ -59,3 +59,112 @@ footer {
 .scroll-top-btn:hover {
   background-color: #ef6c00;
 }
+
+/* ======================================= */
+/* Стилове за страничното навигационно меню */
+/* ======================================= */
+
+.side-nav {
+  height: 100%;
+  width: 0; /* Скрито по подразбиране */
+  position: fixed;
+  z-index: 1000; /* Над всичко останало */
+  top: 0;
+  left: 0;
+  background-color: #2c3e50; /* Цвят на фона */
+  overflow-x: hidden;
+  transition: 0.5s; /* Плавна анимация при отваряне/затваряне */
+  padding-top: 60px; /* Отстояние отгоре за бутона за затваряне и линковете */
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4); /* Лека сянка */
+
+  &.open {
+    width: 250px; /* Ширина при отворено меню */
+    // За мобилни може да е 100% ширина, ако предпочиташ
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+
+  li {
+    margin-bottom: 10px;
+  }
+
+  a {
+    padding: 15px 8px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: #f1f1f1;
+    display: block;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      color: #ffa200;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+.side-menu-toggle-btn {
+  position: fixed;
+  bottom: 5rem; /* Същата позиция като бутона "Начало" */
+  left: 2rem; /* Отляво */
+  background-color: #f57c00;
+  color: white;
+  padding: 0.9rem 1.4rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 998; /* Малко под страничното меню, но над останалото съдържание */
+  transition: opacity 0.3s ease, background-color 0.3s ease; /* Добавих transition за background-color */
+
+  &:hover {
+    background-color: #ef6c00;
+  }
+
+  // На десктоп бутона "Начало" вече е вдясно, така че да не се припокриват.
+  // Ако искаш да е видим и на десктоп, но да не се припокрива с "Начало" бутона.
+  // В момента съм го настроил да се показва само ако не е отворено side менюто.
+}
+
+/* При мобилни устройства, може да се наложи да промениш позиционирането
+   на бутона "Начало", ако се припокрива със страничното меню.
+   В момента side-menu-toggle-btn е отляво, scroll-top-btn е отдясно.
+*/
+@media (max-width: 768px) {
+  .scroll-top-btn {
+    bottom: 2rem; /* Може би малко по-надолу или друга позиция за мобилни */
+    right: 1rem;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .side-menu-toggle-btn {
+    bottom: 2rem; /* На мобилни също малко по-надолу */
+    left: 1rem;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+  }
+}
