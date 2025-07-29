@@ -32,6 +32,8 @@ import { Title } from "@angular/platform-browser";
 export class App implements OnInit, OnDestroy {
   protected readonly defaultTitle = 'Koshercheto';
   showScrollTop = false;
+  sideMenuOpen = false;
+  showSideMenuToggle = false;
 
   private sectionTitles: { [key: string]: string } = {
     'about': 'За нас',
@@ -48,6 +50,7 @@ export class App implements OnInit, OnDestroy {
   constructor(private titleService: Title) {
     window.addEventListener('scroll', () => {
       this.showScrollTop = window.scrollY > 150;
+      this.showSideMenuToggle = window.scrollY > 150 && !this.sideMenuOpen;
       this.updateTitleOnScroll();
     });
 
@@ -82,6 +85,20 @@ export class App implements OnInit, OnDestroy {
     if (headerElement) {
       this.headerOffset = headerElement.offsetHeight;
     }
+  }
+
+  toggleSideMenu() {
+    this.sideMenuOpen = !this.sideMenuOpen;
+    // Можеш да скриеш бутона "Начало" или да го преместиш, когато страничното меню е отворено, ако се припокриват.
+    // Засега бутонът за страничното меню ще се скрива, когато менюто е отворено, за да не пречи.
+    // this.showSideMenuToggle = !this.sideMenuOpen;
+    this.showSideMenuToggle = !this.sideMenuOpen && window.scrollY > 150;
+
+  }
+
+  navigateToSectionFromSideMenu(sectionId: string) {
+    this.updateTitleOnNavigation(sectionId); // Използваме съществуващата логика за скролване
+    this.toggleSideMenu(); // Затваряме страничното меню след избор на секция
   }
 
   scrollToTop() {

@@ -22,8 +22,8 @@ export class Contact {
       // Open Graph тагове за секция "Контакти"
       { property: 'og:title', content: 'Контакти | Частна занималня Кошерчето' },
       { property: 'og:description', content: 'Свържете с нас за въпроси и запитвания. Винаги сме насреща и ви очакваме!' },
-      { property: 'og:image', content: 'https://koshercheto.com/images/og-koshercheto.jpg' },
-      { property: 'og:url', content: 'https://koshercheto.com/#contact' },
+      { property: 'og:image', content: 'https://staging.koshercheto.com/images/og-koshercheto.png' },
+      { property: 'og:url', content: 'https://staging.koshercheto.com/#contact' },
       { property: 'og:type', content: 'website' },
       { property: 'og:site_name', content: 'Частна занималня Кошерчето' },
     ]);

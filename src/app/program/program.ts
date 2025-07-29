@@ -22,8 +22,8 @@ export class Program {
       // Open Graph тагове за секция "Програма"
       { property: 'og:title', content: 'Програма | Частна занималня Кошерчето' },
       { property: 'og:description', content: 'Може да видите програмата на Частна занималня "Кошерчето" за сутрешна и следобедна смяна' },
-      { property: 'og:image', content: 'https://koshercheto.com/images/og-koshercheto.jpg' },
-      { property: 'og:url', content: 'https://koshercheto.com/#program' },
+      { property: 'og:image', content: 'https://staging.koshercheto.com/images/og-koshercheto.png' },
+      { property: 'og:url', content: 'https://staging.koshercheto.com/#program' },
       { property: 'og:type', content: 'website' },
       { property: 'og:site_name', content: 'Частна занималня Кошерчето' },
     ]);

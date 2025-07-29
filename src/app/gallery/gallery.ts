@@ -34,8 +34,8 @@ export class Gallery {
       // Open Graph тагове за секция "Галерия"
       { property: 'og:title', content: 'Галерия | Частна занималня Кошерчето' },
       { property: 'og:description', content: 'Галерия със снимки от частна занималня "Кошерчето".' },
-      { property: 'og:image', content: 'https://koshercheto.com/images/og-koshercheto.jpg' },
-      { property: 'og:url', content: 'https://koshercheto.com/#gallery' },
+      { property: 'og:image', content: 'https://staging.koshercheto.com/images/og-koshercheto.png' },
+      { property: 'og:url', content: 'https://staging.koshercheto.com/#gallery' },
       { property: 'og:type', content: 'website' },
       { property: 'og:site_name', content: 'Частна занималня Кошерчето' },
     ]);

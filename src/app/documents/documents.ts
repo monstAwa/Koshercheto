@@ -22,8 +22,8 @@ export class Documents {
       // Open Graph тагове за секция "Документи"
       { property: 'og:title', content: 'Документи | Частна занималня Кошерчето' },
       { property: 'og:description', content: 'Може да свалите всички необходими документи за записване на вашето дете.' },
-      { property: 'og:image', content: 'https://koshercheto.com/images/og-koshercheto.jpg' },
-      { property: 'og:url', content: 'https://koshercheto.com/#documents' },
+      { property: 'og:image', content: 'https://staging.koshercheto.com/images/og-koshercheto.png' },
+      { property: 'og:url', content: 'https://staging.koshercheto.com/#documents' },
       { property: 'og:type', content: 'website' },
       { property: 'og:site_name', content: 'Частна занималня Кошерчето' },
     ]);

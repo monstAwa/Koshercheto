@@ -7,7 +7,23 @@
   <section id="contact"><app-contact></app-contact></section>
   <section id="sendMessage"><app-sendMessage></app-sendMessage></section>
 </main>
+
+<div class="side-nav" [class.open]="sideMenuOpen">
+  <button class="close-btn" (click)="toggleSideMenu()">&times;</button>
+  <ul>
+    <li><a (click)="navigateToSectionFromSideMenu('about')">За нас</a></li>
+    <li><a (click)="navigateToSectionFromSideMenu('program')">Програма</a></li>
+    <li><a (click)="navigateToSectionFromSideMenu('gallery')">Галерия</a></li>
+    <li><a (click)="navigateToSectionFromSideMenu('documents')">Документи</a></li>
+    <li><a (click)="navigateToSectionFromSideMenu('contact')">Контакти</a></li>
+    <li><a (click)="navigateToSectionFromSideMenu('sendMessage')">Изпратете съобщение</a></li>
+  </ul>
+</div>
+
+<button class="side-menu-toggle-btn" (click)="toggleSideMenu()" *ngIf="showSideMenuToggle">☰</button>
+
 <button class="scroll-top-btn" *ngIf="showScrollTop" (click)="scrollToTop()">
   Начало
 </button>
+
 <app-footer></app-footer>
