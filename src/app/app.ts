@@ -1,4 +1,4 @@
-import { Component, signal, effect, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { About } from './about/about';
 import { Program } from './program/program';
@@ -25,11 +25,11 @@ import { Title } from "@angular/platform-browser";
     sendMessage,
     ReactiveFormsModule,
     Documents
-],
+  ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App implements OnInit {
+export class App implements OnInit, OnDestroy {
   protected readonly defaultTitle = 'Koshercheto';
   showScrollTop = false;
 
@@ -42,19 +42,46 @@ export class App implements OnInit {
     'sendMessage': 'Изпратете съобщение'
   };
 
+  private headerOffset = 0;
+  private resizeObserver: ResizeObserver | undefined;
+
   constructor(private titleService: Title) {
-    let scrollTimeout: any;
     window.addEventListener('scroll', () => {
       this.showScrollTop = window.scrollY > 150;
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        this.updateTitleOnScroll();
-      }, 50);
+      this.updateTitleOnScroll();
     });
+
+    setTimeout(() => {
+      this.calculateHeaderOffset();
+      const headerElement = document.querySelector('app-header header') as HTMLElement;
+      if (headerElement && typeof ResizeObserver !== 'undefined') {
+        this.resizeObserver = new ResizeObserver(() => {
+          this.calculateHeaderOffset();
+        });
+        this.resizeObserver.observe(headerElement);
+      } else {
+        window.addEventListener('resize', () => {
+          this.calculateHeaderOffset();
+        });
+      }
+    }, 0);
   }
 
   ngOnInit() {
     this.updateTitleOnScroll();
+  }
+
+  ngOnDestroy() {
+    if (this.resizeObserver) {
+      this.resizeObserver.disconnect();
+    }
+  }
+
+  private calculateHeaderOffset() {
+    const headerElement = document.querySelector('app-header header') as HTMLElement;
+    if (headerElement) {
+      this.headerOffset = headerElement.offsetHeight;
+    }
   }
 
   scrollToTop() {
@@ -69,34 +96,63 @@ export class App implements OnInit {
     }
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const elementTop = element.getBoundingClientRect().top + window.scrollY;
+
+      let finalScrollPosition = elementTop - this.headerOffset;
+
+      const scrollDownOffsetDesktop = 250; 
+      const scrollDownOffsetMobile = 375;  
+
+      if (window.innerWidth > 768) { 
+        finalScrollPosition += scrollDownOffsetDesktop; 
+      } else { 
+        finalScrollPosition += scrollDownOffsetMobile; 
+      }
+
+      if (finalScrollPosition < 0) {
+        finalScrollPosition = 0;
+      }
+
+      window.scrollTo({
+        top: finalScrollPosition,
+        behavior: 'smooth'
+      });
+    }
+    const headerComponent = document.querySelector('app-header') as any;
+    if (headerComponent && headerComponent.closeMenu) {
+      headerComponent.closeMenu();
     }
   }
 
   private updateTitleOnScroll() {
     let currentSectionId: string | null = null;
     const sections = document.querySelectorAll('section[id]');
-    const offset = 225;
-    const scrollPosition = window.scrollY;
+
+    let offset = this.headerOffset;
+    
+    const activeSectionOffsetDesktop = 50;
+    const activeSectionOffsetMobile = 30;
+
+    if (window.innerWidth > 768) {
+      offset += activeSectionOffsetDesktop;
+    } else {
+      offset += activeSectionOffsetMobile;
+    }
 
     for (let i = sections.length - 1; i >= 0; i--) {
       const sectionElement = sections[i] as HTMLElement;
-      const sectionTop = sectionElement.offsetTop;
-      const sectionBottom = sectionElement.offsetTop + sectionElement.offsetHeight;
+      const rect = sectionElement.getBoundingClientRect();
 
-      if (sectionTop <= scrollPosition + offset && sectionBottom > scrollPosition + offset) {
+      if (rect.top <= offset && rect.bottom > offset) {
         currentSectionId = sectionElement.id;
-        break; 
+        break;
       }
     }
 
     if (currentSectionId && this.sectionTitles[currentSectionId]) {
       this.titleService.setTitle(this.sectionTitles[currentSectionId] + ' | ' + this.defaultTitle);
     } else {
-
       this.titleService.setTitle(this.defaultTitle);
     }
   }
 }
-
-
