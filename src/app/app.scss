@@ -60,26 +60,21 @@ footer {
   background-color: #ef6c00;
 }
 
-/* ======================================= */
-/* Стилове за страничното навигационно меню */
-/* ======================================= */
-
 .side-nav {
   height: 100%;
-  width: 0; /* Скрито по подразбиране */
+  width: 0; 
   position: fixed;
-  z-index: 1000; /* Над всичко останало */
+  z-index: 1000; 
   top: 0;
   left: 0;
-  background-color: #2c3e50; /* Цвят на фона */
+  background-color: #2c3e50; 
   overflow-x: hidden;
-  transition: 0.5s; /* Плавна анимация при отваряне/затваряне */
-  padding-top: 60px; /* Отстояние отгоре за бутона за затваряне и линковете */
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4); /* Лека сянка */
+  transition: 0.5s; 
+  padding-top: 60px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4);
 
   &.open {
-    width: 250px; /* Ширина при отворено меню */
-    // За мобилни може да е 100% ширина, ако предпочиташ
+    width: 250px;
     @media (max-width: 768px) {
       width: 100%;
     }
@@ -127,8 +122,8 @@ footer {
 
 .side-menu-toggle-btn {
   position: fixed;
-  bottom: 5rem; /* Същата позиция като бутона "Начало" */
-  left: 2rem; /* Отляво */
+  bottom: 5rem; 
+  left: 2rem; 
   background-color: #f57c00;
   color: white;
   padding: 0.9rem 1.4rem;
@@ -137,34 +132,98 @@ footer {
   font-weight: bold;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   cursor: pointer;
-  z-index: 998; /* Малко под страничното меню, но над останалото съдържание */
-  transition: opacity 0.3s ease, background-color 0.3s ease; /* Добавих transition за background-color */
+  z-index: 998; 
+  transition: opacity 0.3s ease, background-color 0.3s ease;
 
   &:hover {
     background-color: #ef6c00;
   }
-
-  // На десктоп бутона "Начало" вече е вдясно, така че да не се припокриват.
-  // Ако искаш да е видим и на десктоп, но да не се припокрива с "Начало" бутона.
-  // В момента съм го настроил да се показва само ако не е отворено side менюто.
 }
 
-/* При мобилни устройства, може да се наложи да промениш позиционирането
-   на бутона "Начало", ако се припокрива със страничното меню.
-   В момента side-menu-toggle-btn е отляво, scroll-top-btn е отдясно.
-*/
 @media (max-width: 768px) {
   .scroll-top-btn {
-    bottom: 2rem; /* Може би малко по-надолу или друга позиция за мобилни */
+    bottom: 2rem;
     right: 1rem;
     padding: 0.7rem 1rem;
     font-size: 0.9rem;
   }
 
   .side-menu-toggle-btn {
-    bottom: 2rem; /* На мобилни също малко по-надолу */
+    bottom: 2rem;
     left: 1rem;
     padding: 0.7rem 1rem;
     font-size: 0.9rem;
   }
 }
+
+/* ======================================= */
+/* Стилове за банер за бисквитки           */
+/* ======================================= */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #2c3e50; /* Тъмен фон */
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  flex-wrap: wrap; /* За да се подравнят елементите на малки екрани */
+  justify-content: center; /* Центриране на съдържанието */
+  align-items: center;
+  gap: 15px; /* Разстояние между параграф и бутон */
+  z-index: 1100; /* Над всички други фиксирани елементи */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); /* Лека сянка отгоре */
+  text-align: center; /* Центриране на текста */
+
+  p {
+    margin: 0;
+    font-size: 0.95rem;
+
+    a {
+      color: #ffa200; /* Цвят на линка */
+      text-decoration: underline;
+      &:hover {
+        color: #ef6c00;
+      }
+    }
+  }
+
+  .cookie-accept-btn {
+    background-color: #f57c00;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #ef6c00;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column; /* На малки екрани да са един под друг */
+    padding: 10px 15px;
+    
+    p {
+      font-size: 0.85rem;
+    }
+
+    .cookie-accept-btn {
+      width: 100%; /* Бутонът да е на цяла ширина на мобилни */
+      max-width: 200px; /* За да не е прекалено широк */
+    }
+  }
+}
+
+// За да се избегне припокриване на съдържанието, ако футерът е малък
+body {
+  padding-bottom: 0px; /* Ще го контролираме динамично с JS */
+}
+
+// Ако страничното меню се отваря, може да се припокрие.
+// Ще трябва да се тества и евентуално да се регулират z-index или позиционирането.
+// Засега сме задали z-index на .cookie-banner на 1100, по-висок от другите бутони и менюта.

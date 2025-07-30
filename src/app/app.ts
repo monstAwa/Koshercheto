@@ -24,7 +24,7 @@ import { Title } from "@angular/platform-browser";
     Footer,
     sendMessage,
     ReactiveFormsModule,
-    Documents
+    Documents,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
@@ -34,6 +34,7 @@ export class App implements OnInit, OnDestroy {
   showScrollTop = false;
   sideMenuOpen = false;
   showSideMenuToggle = false;
+  showCookieConsent = false;
 
   private sectionTitles: { [key: string]: string } = {
     'about': 'За нас',
@@ -48,6 +49,8 @@ export class App implements OnInit, OnDestroy {
   private resizeObserver: ResizeObserver | undefined;
 
   constructor(private titleService: Title) {
+    this.showCookieConsent = !localStorage.getItem('cookieConsentAccepted');
+
     window.addEventListener('scroll', () => {
       this.showScrollTop = window.scrollY > 150;
       this.showSideMenuToggle = window.scrollY > 150 && !this.sideMenuOpen;
@@ -72,12 +75,16 @@ export class App implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.updateTitleOnScroll();
+    if (this.showCookieConsent) {
+      this.adjustBodyPaddingForCookieBanner(true);
+    }
   }
 
   ngOnDestroy() {
     if (this.resizeObserver) {
       this.resizeObserver.disconnect();
     }
+    this.adjustBodyPaddingForCookieBanner(false);
   }
 
   private calculateHeaderOffset() {
@@ -89,16 +96,29 @@ export class App implements OnInit, OnDestroy {
 
   toggleSideMenu() {
     this.sideMenuOpen = !this.sideMenuOpen;
-    // Можеш да скриеш бутона "Начало" или да го преместиш, когато страничното меню е отворено, ако се припокриват.
-    // Засега бутонът за страничното меню ще се скрива, когато менюто е отворено, за да не пречи.
-    // this.showSideMenuToggle = !this.sideMenuOpen;
     this.showSideMenuToggle = !this.sideMenuOpen && window.scrollY > 150;
 
   }
 
   navigateToSectionFromSideMenu(sectionId: string) {
-    this.updateTitleOnNavigation(sectionId); // Използваме съществуващата логика за скролване
-    this.toggleSideMenu(); // Затваряме страничното меню след избор на секция
+    this.updateTitleOnNavigation(sectionId); 
+    this.toggleSideMenu(); 
+  }
+
+  acceptCookies() {
+    localStorage.setItem('cookieConsentAccepted', 'true');
+    this.showCookieConsent = false;
+    this.adjustBodyPaddingForCookieBanner(false);
+  }
+
+  private adjustBodyPaddingForCookieBanner(addPadding: boolean) {
+    const body = document.body;
+    const cookieBannerHeight = this.showCookieConsent ? 70 : 0;
+    if (addPadding) {
+      body.style.paddingBottom = `${cookieBannerHeight}px`;
+    } else {
+      body.style.paddingBottom = '0px';
+    }
   }
 
   scrollToTop() {
