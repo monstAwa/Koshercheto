@@ -41,7 +41,10 @@
 
   .note {
     margin-top: 2rem;
-    font-size: 1.05rem;
-    color: #444;
+    font-style: italic;
+    color: #666;
+    margin: 1rem auto;
+    padding: 0 1rem;
+    overflow-wrap: break-word;
   }
 }
