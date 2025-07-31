@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Meta } from "@angular/platform-browser";
 
 @Component({
+  standalone: true,
   selector: 'app-about',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './about.html',
   styleUrl: './about.scss'
 })
@@ -24,24 +23,7 @@ export class About {
     }
   ];
 
-  constructor(private meta: Meta) {
-    // Мета тагoве за SEO
-    this.meta.addTags([
-      {
-        name: 'description',
-        content: 'Частна занималня „Кошерчето“ предлага целодневни и почасови занимания за деца в уютна и стимулираща среда. Нашият екип от професионалисти насърчава ученето чрез игра, творчество и индивидуално внимание.'
-      },
-      {
-        name: 'keywords',
-        content: 'занималня, частна занималня, детска занималня, занимания за деца, Кошерчето, ученически занимания, обучение чрез игра, почасови грижи, следобедни занимания, детски клуб'
-      },
-      // Open Graph тагове за секция "За нас"
-      { property: 'og:title', content: 'За нас | Частна занималня Кошерчето' },
-      { property: 'og:description', content: 'Частна занималня „Кошерчето“ предлага целодневни и почасови занимания за деца в уютна и стимулираща среда. Насърчаваме ученето чрез игра.' },
-      { property: 'og:image', content: 'https://staging.koshercheto.com/images/og-koshercheto.png' },
-      { property: 'og:url', content: 'https://staging.koshercheto.com/#about' },
-      { property: 'og:type', content: 'website' },
-      { property: 'og:site_name', content: 'Частна занималня Кошерчето' },
-    ]);
+  constructor() {
+    
   }
 }

@@ -1,0 +1,34 @@
+<section id="prices" class="prices-and-documents-section">
+  <h2>{{ packageTitle }}</h2>
+  <p>В нашата занималня предлагаме гъвкави пакети, съобразени с нуждите на всяко дете и семейство.</p>
+
+  <div class="packages-container">
+    <div *ngFor="let package of packages" class="package-card">
+      <h3>{{ package.name }}</h3>
+      <p class="package-price">{{ package.price }}</p>
+      <ul>
+        <li *ngFor="let detail of package.details">{{ detail }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="required-documents" class="prices-and-documents-section">
+  <h2>{{ documentsTitle }}</h2>
+  <p>
+    Моля, подгответе следните документи при записване на вашето дете в занималнята.
+    <br>Освен тези, в секция "Документи" на сайта ни ще намерите и
+     други необходими документи, които трябва да приготвите.
+  </p>
+
+  <ul class="documents-list">
+    <li *ngFor="let doc of requiredDocuments" class="document-item">
+      {{ doc.name }}     
+      <ul *ngIf="doc.subdocuments" class="subdocuments-list">
+        <li *ngFor="let subdoc of doc.subdocuments">
+          - {{ subdoc }}
+        </li>
+      </ul>
+    </li>
+  </ul>
+</section>

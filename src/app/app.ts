@@ -8,6 +8,7 @@ import { Header } from './header/header';
 import { Footer } from './footer/footer';
 import { sendMessage } from './sendMessage/sendMessage';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PricesAndDocuments } from './prices-and-documents/prices-and-documents';
 import { Documents } from "./documents/documents";
 import { Title } from "@angular/platform-browser";
 
@@ -25,6 +26,7 @@ import { Title } from "@angular/platform-browser";
     sendMessage,
     ReactiveFormsModule,
     Documents,
+    PricesAndDocuments,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
