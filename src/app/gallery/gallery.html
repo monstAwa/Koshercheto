@@ -1,6 +1,6 @@
 <section id="gallery">
   <h2>Галерия</h2>
   <div class="gallery-grid">
-    <img *ngFor="let imgData of imagesData" [src]="imgData.src" loading="lazy" [alt]="imgData.alt" />
+    <img *ngFor="let imgData of imagesData" [src]="imgData.src" [alt]="imgData.alt" loading="lazy" />
   </div>
 </section>
