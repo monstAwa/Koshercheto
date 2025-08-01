@@ -46,5 +46,14 @@
     margin: 1rem auto;
     padding: 0 1rem;
     overflow-wrap: break-word;
+
+    a {
+      color: #f77b00;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      };
+    }
   }
 }
