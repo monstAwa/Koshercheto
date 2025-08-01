@@ -32,7 +32,7 @@ import { Title } from "@angular/platform-browser";
   styleUrl: './app.scss'
 })
 export class App implements OnInit, OnDestroy {
-  protected readonly defaultTitle = 'Koshercheto';
+  protected readonly defaultTitle = 'Частна Занималня Кошерчето';
   showScrollTop = false;
   sideMenuOpen = false;
   showSideMenuToggle = false;
@@ -42,7 +42,9 @@ export class App implements OnInit, OnDestroy {
     'about': 'За нас',
     'program': 'Програма',
     'gallery': 'Галерия',
-    'documents': 'Документи',
+    'prices': 'Цени',
+    'required-documents': 'Задължителни документи', 
+    'documents': 'Документи за сваляне',
     'contact': 'Контакти',
     'sendMessage': 'Изпратете съобщение'
   };
