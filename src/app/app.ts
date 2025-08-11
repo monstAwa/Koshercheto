@@ -43,8 +43,7 @@ export class App implements OnInit, OnDestroy {
     'program': 'Програма',
     'gallery': 'Галерия',
     'prices': 'Цени',
-    'required-documents': 'Задължителни документи', 
-    'documents': 'Документи за сваляне',
+    'documents': 'Документи за записване',
     'contact': 'Контакти',
     'sendMessage': 'Изпратете съобщение'
   };

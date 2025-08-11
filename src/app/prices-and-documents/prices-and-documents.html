@@ -1,6 +1,6 @@
 <section id="prices" class="prices-and-documents-section">
   <h2>{{ packageTitle }}</h2>
-  <p>В нашата занималня предлагаме гъвкави пакети, съобразени с нуждите на всяко дете и семейство.</p>
+  <p>В нашата занималня предлагаме гъвкави пакети, съобразени с нуждите на всяко дете и възможностите на семейство.</p>
 
   <div class="packages-container">
     <div *ngFor="let package of packages" class="package-card">
@@ -11,24 +11,4 @@
       </ul>
     </div>
   </div>
-</section>
-
-<section id="required-documents" class="prices-and-documents-section">
-  <h2>{{ documentsTitle }}</h2>
-  <p>
-    Всички необходими документи за записване са изброени тук. Можете да свалите и попълните 
-    част от тях директно от нашата секция "Документи", докато други се издават от личен лекар 
-    или други институции.
-  </p>
-
-  <ul class="documents-list">
-    <li *ngFor="let doc of requiredDocuments" class="document-item">
-      {{ doc.name }}     
-      <ul *ngIf="doc.subdocuments" class="subdocuments-list">
-        <li *ngFor="let subdoc of doc.subdocuments">
-          - {{ subdoc }}
-        </li>
-      </ul>
-    </li>
-  </ul>
 </section>
