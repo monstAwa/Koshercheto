@@ -4,7 +4,7 @@
   <section id="about"><app-about></app-about></section>
   <section id="program"><app-program></app-program></section>
   <section id="gallery"><app-gallery></app-gallery></section>
-  <section id="prices-and-documents"><app-prices-and-documents></app-prices-and-documents></section>
+  <section id="prices"><app-prices></app-prices></section>
   <section id="documents"><app-documents></app-documents></section>
   <section id="contact"><app-contact></app-contact></section>
   <section id="sendMessage"><app-sendMessage></app-sendMessage></section>
@@ -14,7 +14,7 @@
   <button class="close-btn" (click)="toggleSideMenu()">&times;</button>
   <ul>
     <li><a (click)="navigateToSectionFromSideMenu('about')">За нас</a></li>
-    <li><a (click)="navigateToSectionFromSideMenu('program')">Програма</a></li>
+    <li><a (click)="navigateToSectionFromSideMenu('program')">Какво предлагаме ние</a></li>
     <li><a (click)="navigateToSectionFromSideMenu('gallery')">Галерия</a></li>
     <li><a (click)="navigateToSectionFromSideMenu('prices')">Цени</a></li>
     <li><a (click)="navigateToSectionFromSideMenu('documents')">Документи за записване</a></li>
@@ -31,7 +31,7 @@
 
 <div class="cookie-banner" *ngIf="showCookieConsent">
   <p>
-    Този сайт използва бисквитки (cookies), за да подобри вашето преживяване. 
+    Този сайт използва бисквитки (cookies). 
     Продължавайки да използвате нашия сайт, вие се съгласявате с нашата 
     <a href="documents/privacy-policy.html" target="_blank" rel="noopener noreferrer">Политика за поверителност и бисквитки</a>
   </p>
