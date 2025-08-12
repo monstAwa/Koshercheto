@@ -3,12 +3,12 @@ import { CommonModule } from "@angular/common";
 
 @Component({
   standalone: true,
-  selector: 'app-prices-and-documents',
+  selector: 'app-prices',
   imports: [CommonModule],
-  templateUrl: './prices-and-documents.html',
-  styleUrl: './prices-and-documents.scss'
+  templateUrl: './prices.html',
+  styleUrl: './prices.scss'
 })
-export class PricesAndDocuments {
+export class Prices {
   packageTitle = 'Пакети';
   packages = [
     {

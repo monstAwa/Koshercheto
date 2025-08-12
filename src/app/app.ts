@@ -8,7 +8,7 @@ import { Header } from './header/header';
 import { Footer } from './footer/footer';
 import { sendMessage } from './sendMessage/sendMessage';
 import { ReactiveFormsModule } from '@angular/forms';
-import { PricesAndDocuments } from './prices-and-documents/prices-and-documents';
+import { Prices } from './prices/prices';
 import { Documents } from "./documents/documents";
 import { Title } from "@angular/platform-browser";
 
@@ -26,13 +26,13 @@ import { Title } from "@angular/platform-browser";
     sendMessage,
     ReactiveFormsModule,
     Documents,
-    PricesAndDocuments,
+    Prices,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App implements OnInit, OnDestroy {
-  protected readonly defaultTitle = 'Частна Занималня Кошерчето';
+  protected readonly defaultTitle = 'Занималня Кошерчето';
   showScrollTop = false;
   sideMenuOpen = false;
   showSideMenuToggle = false;
@@ -40,7 +40,7 @@ export class App implements OnInit, OnDestroy {
 
   private sectionTitles: { [key: string]: string } = {
     'about': 'За нас',
-    'program': 'Програма',
+    'program': 'Какво предлагаме',
     'gallery': 'Галерия',
     'prices': 'Цени',
     'documents': 'Документи за записване',
