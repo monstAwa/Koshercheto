@@ -3,8 +3,8 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const PIXEL_ID = "YOUR_PIXEL_ID"; // сложи си твоето Pixel ID
-  const ACCESS_TOKEN = "YOUR_ACCESS_TOKEN"; // от Events Manager -> Generate Access Token
+  const PIXEL_ID = process.env.PIXEL_ID; // сложи си твоето Pixel ID
+  const ACCESS_TOKEN = process.env.ACCESS_TOKEN; // от Events Manager -> Generate Access Token
 
   const eventData = {
     data: [
