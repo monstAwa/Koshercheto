@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Prices } from './prices/prices';
 import { Documents } from "./documents/documents";
 import { Title } from "@angular/platform-browser";
+import { TrackingService } from './tracking'; // Adjust the import path as necessary
 
 @Component({
   selector: 'app-root',
@@ -51,7 +52,7 @@ export class App implements OnInit, OnDestroy {
   private headerOffset = 0;
   private resizeObserver: ResizeObserver | undefined;
 
-  constructor(private titleService: Title) {
+  constructor(private titleService: Title, private tracking: TrackingService) {
     this.showCookieConsent = !localStorage.getItem('cookieConsentAccepted');
 
     window.addEventListener('scroll', () => {
@@ -81,6 +82,8 @@ export class App implements OnInit, OnDestroy {
     if (this.showCookieConsent) {
       this.adjustBodyPaddingForCookieBanner(true);
     }
+
+    this.tracking.trackPageView("n.d.stoykov@gmail.com");
   }
 
   ngOnDestroy() {
