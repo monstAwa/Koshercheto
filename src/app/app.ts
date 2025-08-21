@@ -83,7 +83,7 @@ export class App implements OnInit, OnDestroy {
       this.adjustBodyPaddingForCookieBanner(true);
     }
 
-    this.tracking.trackPageView("n.d.stoykov@gmail.com");
+    this.tracking.trackPageView();
   }
 
   ngOnDestroy() {
