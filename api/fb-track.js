@@ -25,6 +25,7 @@ export default async function handler(req, res) {
                 ? [require("crypto").createHash("sha256").update(email).digest("hex")]
                 : [],
             },
+            test_event_code: "TEST10266"
           },
         ],
       }),
