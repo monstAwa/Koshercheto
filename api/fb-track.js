@@ -10,6 +10,9 @@ export default async function handler(req, res) {
 
   const { event_name, email, url, event_id } = req.body;
 
+  const ip_address = req.headers["x-real-ip"] || req.headers["x-forwarded-for"] || req.connection.remoteAddress;
+  const user_agent = req.headers["user-agent"];
+
   const response = await fetch(
     `https://graph.facebook.com/v18.0/${PIXEL_ID}/events?access_token=${ACCESS_TOKEN}`,
     {
@@ -26,6 +29,8 @@ export default async function handler(req, res) {
               em: email
                 ? [crypto.createHash("sha256").update(email).digest("hex")]
                 : [],
+            client_ip_address: ip_address,
+            client_user_agent: user_agent,
             },
             event_id: event_id,
           },
