@@ -9,7 +9,7 @@ export class TrackingService {
 
   trackPageView(email?: string) {
     return this.http.post('/api/fb-track', {
-      event_name: 'PageView',
+      event_name: 'ServerPageView',
       email,
       url: window.location.href,
     }).subscribe({
